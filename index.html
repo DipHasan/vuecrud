@@ -38,12 +38,19 @@
     <script>
         let app = new Vue({
             el: ".app",
-            data: {},
-            methods: {
-                
+            data: {
+                users:[]
             },
-            mounted() {
-                
+            methods: {
+                getData: function(){
+                    axios.get("http://localhost/vueproject/vuecrud/api.php?action=read")
+                    .then(function(response){
+
+                    });
+                }
+            },
+            mounted:function() {
+                this.getData();
             }
         });
     </script>
