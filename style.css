@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.row{
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.container{
+    width: 80%;
+    margin: auto;
+}
+
+h4{
+    margin: 0;
+}
+
+.float-left{
+    float: left;
+}
+
+
+.float-right{
+    float: right;
+}
+
+
+table{
+    border-collapse: collapse;
+
+width: 100%;}
+
+th, td{
+    border: 1px solid #cccccc;
+    padding: 5px;
+}
