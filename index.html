@@ -22,11 +22,11 @@
                     <th>Email</th>
                     <th>Action</th>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
+                <tr v-for="user in users">
+                    <td>{{users.id}}</td>
+                    <td>{{users.name}}</td>
+                    <td>{{users.username}}</td>
+                    <td>{{users.email}}</td>
                     <td>1</td>
                 </tr>
             </table>
@@ -45,7 +45,7 @@
                 getData: function(){
                     axios.get("http://localhost/vueproject/vuecrud/api.php?action=read")
                     .then(function(response){
-
+                        app.users = response.data.users;
                     });
                 }
             },
