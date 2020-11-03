@@ -3,7 +3,7 @@
 $conn = new mysqli("localhost", "root","","vuecrud");
 
 if($conn -> connect_errno){
-    die("Database connect error!");
+    die("Database connect errno!");
 }
 
 $response = [
@@ -25,7 +25,19 @@ if($action == "read"){
    $response["users"] = $users;
 
 } elseif($action == "create"){
-    echo $action;
+    $name= $_POST["name"];
+    $name= $_POST["email"];
+    $name= $_POST["username"];
+
+    $result = $conn->query("INSERT INTO `users`(`name`, `username`,`email`)VALUES('name','username','email')");
+
+    if($result){
+        $response["message"] ="Data save success!";
+    }else{
+        $response["error"] = true;
+        $response["message"] ="Data save failed!";
+    }
+
 } elseif($action == "update"){
     echo $action;
 } elseif($action == "delete"){
