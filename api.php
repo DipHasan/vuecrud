@@ -39,9 +39,30 @@ if($action == "read"){
     }
 
 } elseif($action == "update"){
-    echo $action;
+    $name= $_POST["id"];
+    $name= $_POST["name"];
+    $name= $_POST["email"];
+    $name= $_POST["username"];
+
+    $result = $conn->query("UPDATE `users` SET `name`='$name', `username`='$username', `email`='$email' WHERE `id` = '$id'");
+
+    if($result){
+        $response["message"] ="Data update success!";
+    }else{
+        $response["error"] = true;
+        $response["message"] ="Data update failed!";
+    }
 } elseif($action == "delete"){
-    echo $action;
+    $name= $_POST["id"];
+
+    $result = $conn->query("DELETE FROM `users` WHERE `id` = '$id'");
+
+    if($result){
+        $response["message"] ="Data delete success!";
+    }else{
+        $response["error"] = true;
+        $response["message"] ="Data delete failed!";
+    }
 } else{
     die("Invalid action!");
 }
